@@ -19,8 +19,8 @@
 </head>
 
 <body class="bg-dark">
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="nav">
         <a class="navbar-brand" href="#">Front-end</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
             aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
@@ -32,8 +32,18 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(página atual)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Links úteis</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Itens da página
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#jumbotron">Jumbotron</a>
+                        <a class="dropdown-item" href="#cards">Cards</a>
+                        <a class="dropdown-item" href="#texto">Texto e vídeo</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#contato">Entre em contato</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -41,10 +51,10 @@
                         Redes sociais
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Facebook</a>
-                        <a class="dropdown-item" href="#">Instagram</a>
+                        <a class="dropdown-item" href="https://www.facebook.com/" target="_blank">Facebook</a>
+                        <a class="dropdown-item" href="https://www.instagram.com/" target="_blank">Instagram</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">LinkedIn</a>
+                        <a class="dropdown-item" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
                     </div>
                 </li>
 
@@ -55,9 +65,9 @@
             </form>
         </div>
     </nav>
-    <!--/Navbar-->
+    <!-- /Navbar -->
 
-    <!--Carousel-->
+    <!-- Carousel -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -88,20 +98,20 @@
             <span class="sr-only">Próximo</span>
         </a>
     </div>
-    <!--/Carousel-->
+    <!-- /Carousel -->
 
-    <!--Jumbotron-->
-    <div class="jumbotron jumbotron-fluid jumbotron bg-dark text-white">
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid jumbotron bg-dark text-white" id="jumbotron">
         <div class="container">
             <h1 class="display-4">Criando uma landing page com o Bootstrap</h1>
             <p class="lead">Este é um jumbotron modificado que ocupa todo o espaço horizontal de seu elemento pai.</p>
         </div>
     </div>
-    <!--/Jumbotron-->
+    <!-- /Jumbotron -->
 
-    <!--Cards-->
     <div class="container">
-        <div class="card-columns">
+        <!-- Cards -->
+        <div class="card-columns" id="cards">
             <div class="card">
                 <img class="card-img-top"
                     src="assets/img/9-conteúdos-para-quem-quer-se-familiarizar-com-a-área-de-programação-e-desenvolvimento.jpg"
@@ -175,11 +185,22 @@
                     <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
                 </div>
             </div>
-        </div>
-        <!--/Cards-->
 
-        <!--Texto e vídeo-->
-        <div class="row text-white">
+        </div>
+        <!-- /Cards -->
+
+        <!-- Botões de navegação -->
+        <div class="btn-group d-flex justify-content-center mt-5 mb-5">
+            <a href="#" class="btn btn-primary">Anterior</a>
+            <a href="#" class="btn btn-primary">Home</a>
+            <a href="#" class="btn btn-primary">Próxima</a>
+        </div>
+        <!-- /Botões de navegação -->
+
+        <hr>
+
+        <!-- Texto e vídeo -->
+        <div class="row text-white" id="texto">
 
             <div class="col-md-6 mt-5 mb-5">
                 <h3>Texto teste</h3>
@@ -202,12 +223,14 @@
 
             </div>
         </div>
-        <!--/Texto e vídeo-->
+        <!-- /Texto e vídeo -->
 
-        <!--Formulário de contato-->
-        <div class="row mb-5 text-white">
+        <hr>
+
+        <!-- Formulário de contato -->
+        <div class="row mb-5 text-white" id="contato">
             <div class="col-md-12">
-                <h4 class="text-center">
+                <h4 class="text-center mt-5">
                     Entre em contato com a gente
                 </h4>
             </div>
@@ -217,27 +240,29 @@
             <div class="col-md-6">
                 <form>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Nome</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <label for="nome">Nome</label>
+                        <input type="nome" class="form-control" id="nome" onkeyup="validaNome()">
+                        <div id="txtNome"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">E-mail</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" id="email" onkeyup="validaEmail()"
                             placeholder="nome@exemplo.com">
+                        <div id="txtEmail"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Mensagem</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="assunto">Mensagem</label>
+                        <textarea class="form-control" id="assunto" rows="3" onkeyup="validaAssunto()"></textarea>
+                        <div id="txtAssunto"></div>
                     </div>
 
                     <div class="form-group d-flex justify-content-end">
-                        <button class="btn btn-outline-light">Enviar</button>
+                        <button class="btn btn-outline-light" onclick="enviar()">Enviar</button>
                     </div>
                 </form>
             </div>
-
 
             <div class="col-md-6">
                 <iframe class="w-100"
@@ -245,10 +270,9 @@
                     width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
-        <!--/Formulário de contato-->
+        <!-- /Formulário de contato -->
 
-
-        <!--Rodapé-->
+        <!-- Rodapé -->
         <hr>
         <footer>
 
@@ -265,7 +289,6 @@
                         <img class="tm-social" src="./assets/img/linkedin.png" alt="Logo do Linkedin">
                     </a>
 
-
                 </div>
             </div>
 
@@ -279,11 +302,71 @@
 
 
         </footer>
-        <!--/Rodapé-->
+        <!-- /Rodapé -->
 
     </div>
 
+    <!-- Validação do formulário -->
+    <script>
+        let nome = window.document.getElementById('nome')
+        let email = document.querySelector('#email')
+        let assunto = document.querySelector('#assunto')
+        let nomeOk = false
+        let emailOk = false
+        let assuntoOk = false
 
+        nome.style.width = '100%'
+        email.style.width = '100%'
+
+        function validaNome() {
+            let txtNome = document.querySelector('#txtNome')
+            if (nome.value.length < 3) {
+                txtNome.innerHTML = 'Nome inválido'
+                txtNome.style.color = 'red'
+            } else {
+                txtNome.innerHTML = 'Nome válido'
+                txtNome.style.color = 'green'
+                nomeOk = true
+            }
+
+        }
+
+        function validaEmail() {
+            let txtEmail = document.querySelector('#txtEmail')
+
+            if (email.value.indexOf('@') == -1 || email.value.indexOf('.') == -1) {
+                txtEmail.innerHTML = 'Email inválido'
+                txtEmail.style.color = 'red'
+            } else {
+                txtEmail.innerHTML = 'Email válido'
+                txtEmail.style.color = 'green'
+                emailOk = true
+            }
+        }
+
+        function validaAssunto() {
+            let txtAssunto = document.querySelector('#txtAssunto')
+
+            if (assunto.value.length >= 100) {
+                txtAssunto.innerHTML = 'Texto muito grande, digite no máximo 100 caracteres'
+                txtAssunto.style.color = 'red'
+                txtAssunto.style.display = 'block'
+            } else {
+                txtAssunto.style.display = 'none'
+                assuntoOk = true
+            }
+        }
+
+        function enviar() {
+            if (nomeOk == true && emailOk == true && assuntoOk == true) {
+                alert('Formulário enviado com sucesso!')
+
+            } else {
+                alert('Preencha o formulário corretamente antes de enviar')
+            }
+        }
+    </script>
+    <!-- /Validação do formulário -->
 
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
